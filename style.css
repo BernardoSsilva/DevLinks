@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     color: var(--font-color);
-    transition: all 0.2s;
 }
 
 :root{
@@ -32,6 +31,7 @@ body{
     background-position: top center ;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh
 }
 
 #porfile img{
@@ -127,9 +127,40 @@ ul li:hover{
     border: 0;
     left: 0;
     z-index: 1;
+    animation: slide-out 0.4s forwards;
 }
 
 .light #switch button{
-    left: initial;
-    right: 0;
+    animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover{
+    outline: 0.5rem solid var(--social-icon-hover);
+}
+
+@media(min-width: 700px){
+    :root{
+        --background-image: url('./assets/Background.png')
+    }
+    .light{
+        --background-image: url('./assets/Background-light.png')
+    }
+}
+
+@keyframes slide-in{
+    from{
+        left:0;
+    }
+    to {
+        left:50%;
+    }
+}
+
+@keyframes slide-out{
+    from{
+        left:50%;
+    }
+    to {
+        left:0;
+    }
 }
